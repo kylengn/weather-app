@@ -22,8 +22,14 @@ function App() {
 
   return (
     <main>
-      <Container>
-        <Typography variant='h1' fontSize={36} align='center' gutterBottom>
+      <Container sx={{ my: 6 }}>
+        <Typography
+          variant='h1'
+          fontSize={36}
+          fontWeight='bold'
+          align='center'
+          gutterBottom
+        >
           Today's Weather
         </Typography>
         <SearchForm
@@ -39,7 +45,7 @@ function App() {
           snackbarOpen={snackbarOpen}
           setSnackbarOpen={setSnackbarOpen}
         />
-        <Typography variant='h4' align='center' gutterBottom sx={{ mt: 4 }}>
+        <Typography variant='h5' align='center' gutterBottom sx={{ mt: 4 }}>
           Search History
         </Typography>
         {searchHistory.length > 0 ? (

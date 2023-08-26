@@ -41,7 +41,11 @@ function SearchForm({
         setWeatherData(response.data)
         setCity(response.data.name)
         setCountry(response.data.sys.country)
-        addToHistory({ city, country, timestamp: new Date() })
+        addToHistory({
+          city: response.data.name,
+          country: response.data.sys.country,
+          timestamp: new Date()
+        })
         setError(null)
         setSnackbarOpen(true)
       })
@@ -78,7 +82,7 @@ function SearchForm({
         <Grid item xs={12} sm={4}>
           <TextField
             label='Country'
-            placeholder='e.g. UK, JP'
+            placeholder='e.g. GB, JP'
             variant='outlined'
             fullWidth
             size='small'
@@ -104,13 +108,18 @@ function SearchForm({
       )}
       {weatherData.main && (
         <Box
-          sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: '.5rem' }}
+          sx={{
+            mt: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '.25rem'
+          }}
         >
           <Typography variant='body1' color='text.secondary'>
             {weatherData.name}, {weatherData.sys.country}
           </Typography>
           <Typography
-            variant='h3'
+            variant='h4'
             sx={{
               textTransform: 'capitalize',
               display: 'flex',

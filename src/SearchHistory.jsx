@@ -59,8 +59,9 @@ function SearchHistory({
             {history.map((entry, index) => (
               <TableRow key={index}>
                 <TableCell align='center'>{index + 1}</TableCell>
-                <TableCell>{entry.city}</TableCell>
-                <TableCell>{entry.country}</TableCell>
+                <TableCell>
+                  {entry.city}, {entry.country}
+                </TableCell>
                 <TableCell align='right'>
                   {entry.timestamp.toLocaleTimeString()}
                 </TableCell>
